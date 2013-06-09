@@ -9,10 +9,10 @@
  * Print debuginformation from the framework.
  */
 function get_debug() {
-  $ = CEbny::Instance();
-  $html = "<h2>Debuginformation</h2><hr><p>The content of the config array:</p><pre>" . htmlentities(print_r($->config, true)) . "</pre>";
-  $html .= "<hr><p>The content of the data array:</p><pre>" . htmlentities(print_r($->data, true)) . "</pre>";
-  $html .= "<hr><p>The content of the request array:</p><pre>" . htmlentities(print_r($->request, true)) . "</pre>";
+  $eb = CEbny::Instance();
+  $html = "<h2>Debuginformation</h2><hr><p>The content of the config array:</p><pre>" . htmlentities(print_r($eb->config, true)) . "</pre>";
+  $html .= "<hr><p>The content of the data array:</p><pre>" . htmlentities(print_r($eb->data, true)) . "</pre>";
+  $html .= "<hr><p>The content of the request array:</p><pre>" . htmlentities(print_r($eb->request, true)) . "</pre>";
   return $html;
 }
 
@@ -21,7 +21,7 @@ function get_debug() {
  * Prepend the base_url.
  */
 function base_url($url) {
-  return $->request->base_url . trim($url, '/');
+  return $eb->request->base_url . trim($url, '/');
 }
 
 
@@ -29,5 +29,5 @@ function base_url($url) {
  * Return the current url.
  */
 function current_url() {
-  return $->request->current_url;
+  return $eb->request->current_url;
 }

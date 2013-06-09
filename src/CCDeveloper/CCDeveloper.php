@@ -20,23 +20,23 @@ class CCDeveloper implements IController {
   public function Links() {  
     $this->Menu();
     
-    $ly = CLydia::Instance();
+    $eb = CEbny::Instance();
     
     $url = 'developer/links';
-    $current      = $ly->request->CreateUrl($url);
+    $current      = $eb->request->CreateUrl($url);
 
-    $ly->request->cleanUrl = false;
-    $ly->request->querystringUrl = false;    
-    $default      = $ly->request->CreateUrl($url);
+    $eb->request->cleanUrl = false;
+    $eb->request->querystringUrl = false;    
+    $default      = $eb->request->CreateUrl($url);
     
-    $ly->request->cleanUrl = true;
-    $clean        = $ly->request->CreateUrl($url);    
+    $eb->request->cleanUrl = true;
+    $clean        = $eb->request->CreateUrl($url);    
     
-    $ly->request->cleanUrl = false;
-    $ly->request->querystringUrl = true;    
-    $querystring  = $ly->request->CreateUrl($url);
+    $eb->request->cleanUrl = false;
+    $eb->request->querystringUrl = true;    
+    $querystring  = $eb->request->CreateUrl($url);
     
-    $ly->data['main'] .= <<<EOD
+    $eb->data['main'] .= <<<EOD
 <h2>CRequest::CreateUrl()</h2>
 <p>Here is a list of urls created using above method with various settings. All links should lead to
 this same page.</p>
@@ -55,16 +55,16 @@ EOD;
     * Create a method that shows the menu, same for all methods
    */
   private function Menu() {  
-    $ly = CLydia::Instance();
+    $eb = CEbny::Instance();
     $menu = array('developer', 'developer/index', 'developer/links');
     
     $html = null;
     foreach($menu as $val) {
-      $html .= "<li><a href='" . $ly->request->CreateUrl($val) . "'>$val</a>";  
+      $html .= "<li><a href='" . $eb->request->CreateUrl($val) . "'>$val</a>";  
     }
     
-    $ly->data['title'] = "The Developer Controller";
-    $ly->data['main'] = <<<EOD
+    $eb->data['title'] = "The Developer Controller";
+    $eb->data['main'] = <<<EOD
 <h1>The Developer Controller</h1>
 <p>This is what you can do for now:</p>
 <ul>

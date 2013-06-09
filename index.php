@@ -2,21 +2,21 @@
 //
 // PHASE: BOOTSTRAP
 //
-define('LYDIA_INSTALL_PATH', dirname(__FILE__));
-define('LYDIA_SITE_PATH', LYDIA_INSTALL_PATH . '/site');
+define('ebny_INSTALL_PATH', dirname(__FILE__));
+define('ebny_SITE_PATH', ebny_INSTALL_PATH . '/site');
 
-require(LYDIA_INSTALL_PATH.'/src/CLydia/bootstrap.php');
+require(ebny_INSTALL_PATH.'/src/CEbny/bootstrap.php');
 
-$ly = CLydia::Instance();
+$eb = CEbny::Instance();
 
 //
 // PHASE: FRONTCONTROLLER ROUTE
 //
-$ly->FrontControllerRoute();
+$eb->FrontControllerRoute();
 
 
 //
 // PHASE: THEME ENGINE RENDER
 //
-$ly->ThemeEngineRender();
+$eb->ThemeEngineRender();
 
